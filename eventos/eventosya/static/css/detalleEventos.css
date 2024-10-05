@@ -1,0 +1,93 @@
+/* Estilos generales para el cuerpo */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4; /* Fondo claro para el cuerpo */
+}
+
+/* Contenedor principal */
+.container {
+    max-width: 1200px;
+    margin: 80px auto; /* Espacio superior para que no choque con el nav */
+    padding: 20px;
+    background: #ffffff; /* Fondo blanco para el contenedor */
+    border-radius: 10px; /* Bordes redondeados para el contenedor */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* Estilo del título */
+.titulo {
+    text-align: center;
+    margin-bottom: 30px; /* Espacio debajo del título */
+    font-size: 2em;
+    color: #004b87; /* Color que combina con el nav */
+}
+
+/* Estilos para la tarjeta del evento */
+.card {
+    border: none; /* Sin borde */
+    border-radius: 10px; /* Bordes redondeados para la tarjeta */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* Flexbox para dividir la tarjeta */
+.row.g-0 {
+    margin: 0; /* Sin margen */
+}
+
+/* Columna de la imagen */
+.col-md-4 {
+    display: flex; /* Usar flexbox para centrar la imagen */
+    align-items: center; /* Centrar verticalmente */
+    justify-content: center; /* Centrar horizontalmente */
+}
+
+.img-fluid {
+    border-radius: 10px 0 0 10px; /* Bordes redondeados a la imagen */
+    max-width: 80%; /* Ajustar ancho máximo de la imagen al 80% del contenedor */
+    height: auto; /* Mantener la proporción de la imagen */
+}
+
+/* Columna de la información */
+.col-md-8 {
+    padding: 20px; /* Espaciado para la información */
+}
+
+/* Títulos y texto en la tarjeta */
+.card-title {
+    font-size: 1.5em; /* Tamaño de fuente para el título */
+    color: #004b87; /* Color que combina con el nav */
+}
+
+.card-text {
+    margin-bottom: 10px; /* Espacio entre los párrafos */
+}
+
+/* Estilo del botón en el pie de la tarjeta */
+.card-footer {
+    background-color: #f9f9f9; /* Fondo suave para el pie */
+}
+
+.btn-secondary {
+    background-color: #004b87; /* Color de fondo del botón */
+    color: #ffffff; /* Color del texto del botón */
+    padding: 10px 15px;
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s; /* Transición de color de fondo */
+}
+
+.btn-secondary:hover {
+    background-color: #003d70; /* Color de fondo al pasar el ratón */
+}
+
+/* Estilo para el mensaje de alerta cuando no se encuentra el evento */
+.alert {
+    text-align: center;
+    color: #ff0000; /* Color rojo para el mensaje */
+    font-weight: bold; /* Negrita */
+    margin-top: 20px; /* Espacio superior */
+    background-color: #ffeeba; /* Fondo amarillo suave para la alerta */
+    border: 1px solid #ffeeba; /* Borde amarillo suave */
+    border-radius: 5px; /* Bordes redondeados */
+}

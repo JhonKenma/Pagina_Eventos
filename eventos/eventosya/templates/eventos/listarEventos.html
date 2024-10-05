@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}Lista de Eventos{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="text-center titulo">Lista de Eventos</h1>
+    <div class="eventos">
+        {% for evento in eventos %}
+            <div class="evento">
+                {% if evento.imagen %}
+                    <img src="{{ evento.imagen.url }}" alt="{{ evento.nombrEvento }}" class="evento-imagen">
+                {% endif %}
+                <div class="evento-info">
+                    <h5 class="evento-titulo">{{ evento.nombrEvento }}</h5>
+                    <p class="evento-fecha"><strong>Fecha Inicio:</strong> {{ evento.fechaInicio|date:"l j \d\e F" }}</p>
+                    <p class="evento-lugar"><strong>Lugar:</strong> {{ evento.lugar }}</p>
+                </div>
+                
+                <div class="evento-botones">
+                    <!-- Verifica si el usuario está registrado en el evento -->
+                    {% if user.is_authenticated %}
+                        {% if evento.id in eventos_registrados %}
+                            <button class="btn btn-registrado" disabled>Registrado</button>
+                        {% else %}
+                            <form action="{% url 'registrarse_evento' evento.id %}" method="post">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-registrarse">Registrarse</button>
+                            </form>
+                        {% endif %}
+                    {% else %}
+                        <p>Debes <a href="{% url 'login' %}">iniciar sesión</a> para registrarte.</p>
+                    {% endif %}
+                    
+                    <button class="btn btn-detalles" onclick="location.href='{% url 'detalle_evento' evento.id %}'">Ver Detalles</button>
+                    <a href="{% url 'ver_registrados' evento.id %}" class="btn btn-secondary btn-block">Ver Registrados</a>
+                </div>
+            </div>
+        {% empty %}
+            <div class="alert">No hay eventos disponibles en este momento.</div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

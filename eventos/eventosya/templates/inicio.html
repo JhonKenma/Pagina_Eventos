@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="info-section">
+    <h2>Información Adicional</h2>
+    <p>¡Bienvenido a nuestro sistema de gestión de eventos!</p>
+    <p><strong>"¡Crea tu evento!"</strong></p>
+    <p><strong>"¡Regístrate y participa!"</strong></p>
+    <p><strong>"¡Conéctate y comparte!"</strong></p>
+    <img src="media/jk/eve.jpg" alt="Descripción de la imagen" class="info-image">
+</div>
+<br>
+<br>
+<div class="form-section">
+    <h1>Bienvenido</h1>
+    <p>Aquí puedes registrarte o iniciar sesión.</p>
+    <button class="btn" onclick="showForm('login')">Iniciar Sesión</button>
+    <button class="btn" onclick="showForm('registro')">Registrar</button>
+    
+    <!-- Incluir formularios -->
+    {% include 'login_form.html' %}
+    {% include 'registro_form.html' %}
+</div>
+{% endblock %}

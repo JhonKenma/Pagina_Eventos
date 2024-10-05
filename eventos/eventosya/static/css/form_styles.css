@@ -1,0 +1,77 @@
+/* Estilos generales para el contenedor */
+.container {
+    max-width: 800px; /* Ancho máximo del contenedor */
+    margin: auto; /* Centrar horizontalmente */
+    padding: 20px; /* Espaciado interno */
+    background-color: #ffffff; /* Fondo blanco */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra */
+    display: flex; /* Flexbox para el diseño */
+    flex-direction: row; /* Colocar elementos en fila */
+    justify-content: space-between; /* Espaciado entre las secciones */
+}
+
+/* Sección de formulario */
+.form-section {
+    flex: 1; /* Permite que la sección ocupe espacio disponible */
+    padding: 20px; /* Espaciado interno */
+}
+
+/* Sección de información */
+.info-section {
+    flex: 1; /* Permite que la sección ocupe espacio disponible */
+    padding: 20px; /* Espaciado interno */
+}
+
+/* Estilos para los encabezados */
+h1 {
+    font-size: 24px; /* Tamaño del texto */
+    color: #333; /* Color del texto */
+    text-align: center; /* Centrar texto */
+}
+
+/* Estilos para los formularios */
+form {
+    display: flex; /* Flexbox para el diseño */
+    flex-direction: column; /* Colocar elementos en columna */
+}
+
+/* Estilos para los campos de entrada */
+input {
+    padding: 10px; /* Espaciado interno */
+    margin: 10px 0; /* Margen entre campos */
+    border: 1px solid #ccc; /* Borde gris claro */
+    border-radius: 4px; /* Bordes redondeados */
+    font-size: 16px; /* Tamaño del texto */
+}
+
+/* Estilos para los botones */
+button {
+    padding: 10px; /* Espaciado interno */
+    background-color: #073465; /* Color de fondo azul */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    border-radius: 4px; /* Bordes redondeados */
+    cursor: pointer; /* Cambiar cursor al pasar sobre el botón */
+    font-size: 16px; /* Tamaño del texto */
+    transition: background-color 0.3s ease; /* Transición para el hover */
+}
+
+/* Efecto hover en los botones */
+button:hover {
+    background-color: #0056b3; /* Color de fondo más oscuro al pasar el ratón */
+}
+
+/* Estilos para los enlaces */
+a {
+    text-align: center; /* Centrar texto */
+    color: #07315d; /* Color azul */
+    text-decoration: none; /* Sin subrayado */
+    display: block; /* Para que ocupe toda la línea */
+    margin-top: 10px; /* Margen superior */
+}
+
+/* Efecto hover en los enlaces */
+a:hover {
+    text-decoration: underline; /* Subrayar al pasar el ratón */
+}

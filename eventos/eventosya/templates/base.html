@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Inicio</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+    <link rel="stylesheet" href="{% static 'css/form_styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/eventos.css' %}">
+    <link rel="stylesheet" href="{% static 'css/detalleEventos.css' %}">
+    <link rel="stylesheet" href="{% static 'css/event_form.css' %}">
+
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{% url 'inicio' %}">Inicio</a></li>
+            <li><a href="{% url 'listarEventos' %}">Eventos</a></li>
+    
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'crear_evento' %}">Añadir eventos</a></li>
+            <li><a href="{% url 'panel_vistas' %}">Ver Consultas</a></li> <!-- Enlace solo para usuarios autenticados -->
+            <li>
+                <form method="POST" action="{% url 'logout' %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn cerrar-sesion">Cerrar Sesión</button>
+                </form>
+            </li>            
+            {% else %}
+            <li><a href="{% url 'login' %}">Iniciar Sesión</a></li>
+            <li><a href="{% url 'registro' %}">Registrarse</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+    
+    
+    <div class="container mt-4">
+        {% block content %}
+        <!-- Aquí irá el contenido de cada página que extienda esta plantilla -->
+        {% endblock %}
+    </div>
+    <p>Usuario autenticado: {{ user.is_authenticated }}</p>
+
+    <footer>
+        <p>&copy; 2024 Tu Organización. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function showForm(formType) {
+            document.getElementById('loginForm').style.display = 'none';
+            document.getElementById('registroForm').style.display = 'none';
+
+            if (formType === 'login') {
+                document.getElementById('loginForm').style.display = 'block';
+            } else if (formType === 'registro') {
+                document.getElementById('registroForm').style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header bg-primary text-white text-center">
+            <h2>Usuarios Registrados para el Evento</h2>
+            <h4>{{ evento.nombrEvento }}</h4>
+        </div>
+        <div class="card-body">
+            {% if registrados %}
+                <table class="table table-hover table-bordered">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Nombre de Usuario</th>
+                            <th scope="col">Fecha de Registro</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for registro in registrados %}
+                            <tr>
+                                <th scope="row">{{ forloop.counter }}</th>
+                                <td>{{ registro.usuario.username }}</td>
+                                <td>{{ registro.fechaRegistro|date:"d M Y, H:i" }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <div class="alert alert-info text-center" role="alert">
+                    No hay usuarios registrados para este evento.
+                </div>
+            {% endif %}
+        </div>
+        <div class="card-footer text-center">
+            <a href="{% url 'listarEventos' %}" class="btn btn-secondary">Volver a la lista de eventos</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
